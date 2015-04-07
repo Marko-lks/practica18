@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Modificar</title>
+    <!--link rel="shortcut icon" href="LC_Icono_01_128.png" />
+    <link rel="icon" type="image/png" href="LC_Icono_01_128.png" />
+    <link rel="icon" type="image/gif" href="imagen.gif" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="imagen.ico" /-->
+    <!-- Latest compiled and minified CSS -->
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"-->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script-->
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'icono.png' %}"/>
+    <link rel="icon" type="image/png" href="{% static 'icono.png' %}" />
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.min.css' %}" />
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style>
+        ul{
+            list-style: none;
+        }
+        label{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="." method="post">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Alumnos</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Inicio</a></li>
+                <li><a href="#">Acerca</a></li>
+                <li><a href="#">Contacto</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+        <div class="jumbotron">
+            <h2>Modificar</h2>
+        </div>
+        {% csrf_token %}
+        <ul>
+
+
+            <input id="id" name="id" type="hidden" value="{{ alumno.id }}">
+            <li><label for="id_nombres">Nombre:</label><input id="id_nombres" name="nombres" type="text" value="{{ alumno.nombres }}"></li>
+            <li><label for="id_apellidop">Ape Paterno:</label> <input id="id_apellidop" name="apellidop" type="text" value="{{ alumno.apellp }}"/></li>
+            <li><label for="id_apellidom">Ape Materno:</label> <input id="id_apellidom" name="apellidom" type="text" value="{{ alumno.apellm }}"/></li>
+            <li><label for="id_edad">Edad:</label> <input id="id_edad" name="edad" type="text" value="{{ alumno.edad }}"/></li>
+            <li><label for="id_carrera">Carrera:</label> <input id="id_carrera" name="carrera" type="text" value="{{ alumno.carrera }}"/></li>
+            <input type="submit" value="Modificar"/>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>
